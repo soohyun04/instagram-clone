@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: instagram-clone
+  config:
+    import: ./config.yaml
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mail:
+    host: smtp.gmail.com
+    password: ${mail.password}
+    username: ${mail.username}
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    port: 587
+mybatis:
+  mapper-locations: classpath:mappers/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+file:
+  upload:
+    path: ${upload.profile-path}
+    board-path: ${upload.board-path}
+
+jwt:
+  secret: ${jwt.config.secret}
+  access-expiry: 1800000
+  refresh-expiry: 1209600000

@@ -1,0 +1,16 @@
+db:
+  url: jdbc:mysql://localhost:3306/mydb
+  username: root
+  password: "0331"
+
+upload:
+  profile-path: C:/uploads/profile
+  board-path: C:/uploads/board
+
+mail:
+  username: yusuhyun04@gmail.com
+  password: dbbz achl lhmv qdzq
+
+jwt:
+  config:
+    secret: springboard-jwt-secret-kry-2026-change-this-please!!
