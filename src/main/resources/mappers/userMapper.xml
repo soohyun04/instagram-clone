@@ -3,6 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="userMapper">
-
+<mapper namespace="com.project.instagramclone.model.mapper.UserMapper">
+    <insert id="회원가입" parameterType="com.project.instagramclone.model.dto.User">
+        INSERT INTO users
+            (name, email, password, created_at)
+        VALUES (#{name}, #{email}, #{password}, now())
+    </insert>
+    <select id="이메일중복체크" parameterType="com.project.instagramclone.model.dto.User" resultType="int">
+        SELECT count(*)
+        FROM users
+        WHERE email = #{email}
+    </select>
 </mapper>

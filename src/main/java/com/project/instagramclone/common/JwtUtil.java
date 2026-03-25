@@ -47,8 +47,6 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(secretKeyValue.getBytes());
     }
 
-    ;
-
     public String createAccessToken(String email) {
         return buildToken(email, accessTokenExpiry);
     }
