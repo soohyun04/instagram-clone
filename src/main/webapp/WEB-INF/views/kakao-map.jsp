@@ -102,14 +102,15 @@
 
             // 인포윈도우 내용 (말풍선 팝업)
             const 인포윈도우내용 = `
-            <div class="custom-infowindow">
-                <div class="iw-name">${loc.icon} ${loc.name}</div>
-                <div class="iw-desc">${loc.desc}</div>
-                <span class="iw-badge" style="background:${loc.color}22; color:${loc.color}">
+            <div style="    background: #1a1a1a;    border: 1px solid #333;    border-radius: 12px;    padding: 12px 14px;     font-family: 'Inter', sans-serif; min-width: 160px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+                <div style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px;">${loc.icon} ${loc.name}</div>
+                <div  style="font-size: 12px; color: #888;">${loc.desc}</div>
+                <span  style="  display: inline-block; margin-top: 6px;  padding: 2px 8px; border-radius: 20px; font-size: 11px; font-weight: 600;">
                    ${loc.lat.toFixed(4)} ${loc.lng.toFixed(4)}
                 </span>
             </div>
             `;
+
             const 인포윈도우 = new kakao.maps.InfoWindow({
                 content: 인포윈도우내용,
                 removable: true, // 닫기 버튼을 표기하겠다.
