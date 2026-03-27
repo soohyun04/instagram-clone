@@ -161,7 +161,7 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=18de8ecfa54c34e3e1fdd591e1d33a4e&onload=지도초기화"></script>
 --%>
 <%-- 비즈앱이 아닌 테스트앱 -> 비즈앱에 기재되어 있는 플랫촘 키에서 javascript키를 가져와 사용한다. --%>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2c071a49bcf535fcf9dd9e70e4c2fab5&autoload=false"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c0734efd9e59bc60ae8b14b988ffdf9f&autoload=false"></script>
 <script>
     kakao.maps.load(function (){
         지도초기화();
