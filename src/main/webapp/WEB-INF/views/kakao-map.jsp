@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="true" %>
 <html>
 <head>
     <title>카카오맵 마커</title>
@@ -49,8 +49,12 @@
     //=======================================================
     // placeList
     const 장소들 = document.getElementById("place-list");
+    console.log("place-list 확인 :", 장소들);
     // location = loc index = idx button = btn String = str message = msg
+    //locations = 장소들이 들어있는 리스트 목록들
+    // forEach 문은 목록들을 0번째부터 끝번째까지 순회
     locations.forEach((loc, idx) => {
+        console.log("현재 log : " , loc); //locations 을 순회해서 loc안에 1번 부터 5번까지 모두 다 조회가 되는지 확인
         const item = document.createElement("div");
         item.className = "place-item";
         item.id = "place-" + loc.id;
@@ -66,6 +70,7 @@
         `;
         item.addEventListener("click", () => 마커이동(idx));
         장소들.appendChild(item);
+        console.log("appendChild 완료 : ", item);
     });
 
     // =====================================================

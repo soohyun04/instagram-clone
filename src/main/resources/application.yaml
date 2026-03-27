@@ -45,3 +45,7 @@ jwt:
   secret: ${jwt.config.secret}
   access-expiry: 1800000
   refresh-expiry: 1209600000
+
+kakao:
+  client-id: e2e0a3e502746373f62e2960cc892ea4
+  redirect-uri: http://localhost:8080/api/kakao/callback
