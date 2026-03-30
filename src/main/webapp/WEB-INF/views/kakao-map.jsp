@@ -1,4 +1,6 @@
-<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="true" %>
+<%--만약 백엔드로 데이터를 front-end로 전달하는 데이터가 있다면
+isELIgnored="false로"--%>
+<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -39,15 +41,15 @@
     //=======================================================
     const locations = [
         <c:forEach items="${locations}" var="loc" varStatus="status">
-        {
-            id:    ${loc.id},
-            name:  "${loc.name}",
-            desc:  "${loc.description}",
-            lat:   ${loc.lat},
-            lng:   ${loc.lng},
-            icon:  "${loc.icon}",
-            color: "${loc.color}"
-        }<c:if test="${!status.last}">,</c:if>
+            {
+                id:    ${loc.id},
+                name:  "${loc.name}",
+                desc:  "${loc.description}",
+                lat:   ${loc.lat},
+                lng:   ${loc.lng},
+                icon:  "${loc.icon}",
+                color: "${loc.color}"
+            }<c:if test="${!status.last}">,</c:if>
         </c:forEach>
     ];
     //=======================================================

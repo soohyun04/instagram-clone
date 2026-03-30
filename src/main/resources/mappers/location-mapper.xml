@@ -7,7 +7,7 @@
 
     <select id="장소목록조회" resultType="com.project.instagramclone.model.dto.Location">
         SELECT *
-        FROM   location
+        FROM location
     </select>
 
 </mapper>
