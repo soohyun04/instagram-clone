@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="true" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>카카오맵 마커</title>
@@ -37,13 +38,18 @@
     // 웹 브라우저에서 map 생성하고 initMap 호출 과 같은 여러 작업을 한 다음에 마커를 찍는 작업
     //=======================================================
     const locations = [
-        {id: 1, name: "경복궁", desc: "조선 시대 대표 궁궐", lat: 37.5796, lng: 126.9770, icon: "🏯", color: "#FF6B6B"},
-        {id: 2, name: "남산서울타워", desc: "서울 야경 명소", lat: 37.5512, lng: 126.9882, icon: "🗼", color: "#4ECDC4"},
-        {id: 3, name: "홍대 거리", desc: "젊음과 문화의 거리", lat: 37.5563, lng: 126.9236, icon: "🎨", color: "#FFE66D"},
-        {id: 4, name: "강남역", desc: "서울 최대 번화가", lat: 37.4979, lng: 127.0276, icon: "🏙️", color: "#A8E6CF"},
-        {id: 5, name: "한강공원", desc: "시민 휴식 공간", lat: 37.5283, lng: 126.9341, icon: "🌊", color: "#74B9FF"}
+        <c:forEach items="${locations}" var="loc" varStatus="status">
+        {
+            id:    ${loc.id},
+            name:  "${loc.name}",
+            desc:  "${loc.description}",
+            lat:   ${loc.lat},
+            lng:   ${loc.lng},
+            icon:  "${loc.icon}",
+            color: "${loc.color}"
+        }<c:if test="${!status.last}">,</c:if>
+        </c:forEach>
     ];
-
     //=======================================================
     // 사이드 패널 장소 목록 렌더링
     //=======================================================

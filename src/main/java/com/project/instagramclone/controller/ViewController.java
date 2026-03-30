@@ -1,9 +1,13 @@
 package com.project.instagramclone.controller;
 
+import com.project.instagramclone.model.dto.Location;
+import com.project.instagramclone.model.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * 확장자별 파일 명칭
@@ -22,6 +26,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ViewController {
     //민수가 회원가입 맡아서 매번 회원가입사이트 들어가서 개발 너무 귀찮다...
     //본인이 하는 회원가입 페이지를 /임시로 변경하고 해야지~
+    private final LocationService locationService;
+
     @GetMapping("/")
     public String indexView() {
         return "index";
@@ -43,7 +49,9 @@ public class ViewController {
     }
 
     @GetMapping("/map")
-    public String kakaoMapView(){
+    public String kakaoMapView(Model model){
+        List<Location> 장소목록 = locationService.장소목록가져오기();
+        model.addAttribute("locations", 장소목록);
         return "kakao-map";
     }
 
