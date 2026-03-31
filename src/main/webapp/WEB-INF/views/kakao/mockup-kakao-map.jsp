@@ -41,15 +41,15 @@ isELIgnored="false로"--%>
     //=======================================================
     const locations = [
         <c:forEach items="${locations}" var="loc" varStatus="status">
-            {
-                id:    ${loc.id},
-                name:  "${loc.name}",
-                desc:  "${loc.description}",
-                lat:   ${loc.lat},
-                lng:   ${loc.lng},
-                icon:  "${loc.icon}",
-                color: "${loc.color}"
-            }<c:if test="${!status.last}">,</c:if>
+        {
+            id:    ${loc.id},
+            name:  "${loc.name}",
+            desc:  "${loc.description}",
+            lat:   ${loc.lat},
+            lng:   ${loc.lng},
+            icon:  "${loc.icon}",
+            color: "${loc.color}"
+        }<c:if test="${!status.last}">,</c:if>
         </c:forEach>
     ];
     //=======================================================

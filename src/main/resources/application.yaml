@@ -55,8 +55,8 @@ logging:
   level:
     com.project.instagramclone: DEBUG # 내 프로젝트
     org.mybatis: DEBUG                # MyBatis
-    java.sql: DEBUG                   # SQL 작성문
-    java.sql.ResultSet: DEBUG         # SQL 사용에 따른 결과
+    #java.sql: DEBUG                   # SQL 작성문
+    #java.sql.ResultSet: DEBUG         # SQL 사용에 따른 결과
     root: info
-    com.zaxxer.hikari: DEBUG
-    org.springframework.jdbc: DEBUG
+    #com.zaxxer.hikari: DEBUG
+    #org.springframework.jdbc: DEBUG
