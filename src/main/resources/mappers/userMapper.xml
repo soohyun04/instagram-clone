@@ -14,4 +14,9 @@
         FROM users
         WHERE email = #{email}
     </select>
+
+    <select id="모든회원조회" parameterType="com.project.instagramclone.model.dto.User">
+        SELECT *
+        FROM users
+    </select>
 </mapper>

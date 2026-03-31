@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -77,5 +79,19 @@ public class UserService {
 
     public boolean 인증번호검증(String email, String code) {
         return emailCodeService.인증번호확인(email, code);
+    }
+
+    /*
+    필요한 타입 : int
+
+    제공된 타입 : List
+
+    만약 내가 db에서 가져온 총 개수가 궁금해 -> int
+    만약 내가 db에서 가져온 통 데이터가 궁금해 -> List<User>
+
+    이정도는 팀장님이 이렇게 했으면 좋겠다 가이드라인 제공
+     */
+    public List<User> 모든회원조회(){
+        return userMapper.모든회원조회();
     }
 }

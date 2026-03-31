@@ -74,4 +74,9 @@ public class ViewController {
     public String editView(int board_no, Model model) {
         return "board/edit";
     }
+
+    @GetMapping("/users/list")
+    public String allUserView(){
+        return "user/user-list";
+    }
 }

@@ -4,10 +4,12 @@ import com.project.instagramclone.model.dto.User;
 import com.project.instagramclone.model.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -44,5 +46,11 @@ public class UserApiController {
                     .body(Map.of("message", "이미 사용중인 이메일입니다."));
         }
         return ResponseEntity.ok(Map.of("message", "회원가입 완료")); // TODO C-6: 성공 메서드
+    }
+
+    @GetMapping("/api/users")
+    public ResponseEntity<?> 모든회원조회(){
+        List<User> user = userService.모든회원조회();
+        return ResponseEntity.ok(user);
     }
 }
