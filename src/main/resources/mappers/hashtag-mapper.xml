@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.instagramclone.model.mapper.HashtagMapper">
+    <select id="인기해시태그조회" resultType="com.project.instagramclone.model.dto.HashTag">
+        SELECT *
+        FROM hashtag
+        ORDER BY  count DESC
+        LIMIT 10
+    </select>
+
+    <!-- 키워드로 해시태그 검색 (# 제외 후 LIKE 검색)
+    #spring 검색하면 REPLACE()
+    REPLACE('원본데이터를' , '이것으로 수정하겠다')
+    ('%', REPLACE(#{keyword}, '#', ''), '%') -> #은 전부 다 없애겠다.
+    -->
+    <select id="해시태그검색" resultType="com.project.instagramclone.model.dto.HashTag">
+        SELECT *
+        FROM hashtag
+        WHERE name LIKE ('%', REPLACE(#{keyword}, '#', ''), '%')
+        ORDER BY  count DESC
+        LIMIT 10
+    </select>
+</mapper>

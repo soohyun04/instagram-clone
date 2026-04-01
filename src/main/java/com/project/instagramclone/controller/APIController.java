@@ -1,9 +1,12 @@
 package com.project.instagramclone.controller;
 
+import com.project.instagramclone.model.dto.HashTag;
 import com.project.instagramclone.model.dto.Location;
+import com.project.instagramclone.model.service.HashTagService;
 import com.project.instagramclone.model.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,9 +27,20 @@ import java.util.List;
 @RequiredArgsConstructor
 public class APIController {
     private final LocationService locationService;
+    private final HashTagService hashTagService;
 
     @GetMapping("/api/kakao-map-list")
     public List<Location> 전체데이터확인(){
         return locationService.장소목록가져오기();
+    }
+
+    @GetMapping("/api/hashtags/popular")
+    public List<HashTag> 인기해시태그(){
+        return hashTagService.인기해시태그가져오기();
+    }
+
+    @GetMapping("/api/hashtags/search")
+    public List<HashTag> 해시태그검색(@RequestParam String keyword){
+        return hashTagService.해시태그검색(keyword);
     }
 }
