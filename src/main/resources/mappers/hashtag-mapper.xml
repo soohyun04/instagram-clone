@@ -19,7 +19,7 @@
     <select id="해시태그검색" resultType="com.project.instagramclone.model.dto.HashTag">
         SELECT *
         FROM hashtag
-        WHERE name LIKE ('%', REPLACE(#{keyword}, '#', ''), '%')
+        WHERE name LIKE CONCAT('%', REPLACE(#{keyword}, '#', ''), '%')
         ORDER BY  count DESC
         LIMIT 10
     </select>
