@@ -10,7 +10,7 @@
                 <input id="검색입력"
                        class="nav-search-input"
                        type="text"
-                       placeholder="검색어를 입력하세요."
+                       placeholder="검색"
                        autocomplete="off">
             </div>
             <div class="hashtag-dropdown"
@@ -26,7 +26,7 @@
         <div class="nav-icons">
             <a class="nav-icon" href="/">홈</a>
             <a class="nav-icon" href="/map">지도</a>
-            <a class="nav-icon" >글쓰기</a>
+            <a class="nav-icon">글쓰기</a>
 
             <c:choose>
                 <c:when test="${not empty loginUser}">
