@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+KR:wght@300;400;500;600&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="/static/css/instagram.css">
+    <link rel="stylesheet" href="/static/css/nav.css">
 </head>
 <body>
 
