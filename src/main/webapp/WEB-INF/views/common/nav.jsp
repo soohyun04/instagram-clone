@@ -4,22 +4,29 @@
     <div class="nav-inner">
         <a href="/" class="nav-logo">instagram</a>
 
+        <div id="검색창" class="nav-search-wrapper">
+            <div class ="nav-search-box">
+                <span class="nav-search-icon">검색아이콘</span>
+                <input id="검색입력"
+                       class="nav-search-input"
+                       type="text"
+                       placeholder="검색어를 입력하세요."
+                       autocomplete="off">
+            </div>
+            <div class="hashtag-dropdown"
+                 id="태그드롭">
+                <p class="hashtag-dropdown-title">인기 해시태그</p>
+                <ul class="hashtag-list"
+                    id="태그목록">
+                    <li class="hashtag-loading">불러오는 중 ...</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="nav-icons">
-            <button class="nav-btn">
-                <img src ="/static/img/icon-home.png" alt="홈" class="nav-icon">
-            </button>
-            <button class="nav-btn">
-                <img src ="/static/img/icon-search.png" alt="검색" class="nav-icon">
-            </button>
-            <button class="nav-btn">
-                <img src ="/static/img/icon-newpost.png" alt="새 게시물" class="nav-icon">
-            </button>
-            <button class="nav-btn">
-                <img src ="/static/img/icon-like.png" alt="좋아요" class="nav-icon">
-            </button>
-            <button class="nav-btn">
-                <img src ="/static/img/icon-more.png" alt="더보기" class="nav-icon">
-            </button>
+            <a class="nav-icon" href="/">홈</a>
+            <a class="nav-icon" href="/map">지도</a>
+            <a class="nav-icon" >글쓰기</a>
 
             <c:choose>
                 <c:when test="${not empty loginUser}">
