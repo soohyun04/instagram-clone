@@ -6,7 +6,7 @@
 
         <div id="검색창" class="nav-search-wrapper">
             <div class ="nav-search-box">
-                <span class="nav-search-icon">검색아이콘</span>
+                <span class="nav-search-icon">🔎</span>
                 <input id="검색입력"
                        class="nav-search-input"
                        type="text"
