@@ -1,6 +1,8 @@
 package com.project.instagramclone.common;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -15,16 +17,36 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  *
  * 이미지, 동영상, 문서 관련 회사가 아니라면 필요없는 환경설정
  */
-@Configuration
-public class WebConfig implements WebMvcConfigurer {
-    // ctrl + i
-    // 프로그램에서는 개발자의 허락없이는 프로젝트에 만들어진 모든 파일에 접근할 수 있는 권한 없다.
-    // Controller로 주소를 작성하고 주소 내부에 작성한 확장자 .jsp나 .html 파일 이외는
-    // 모두 접근해도 된다는 권한 허용 거쳐야 한다.
+// ctrl + i
+// 프로그램에서는 개발자의 허락없이는 프로젝트에 만들어진 모든 파일에 접근할 수 있는 권한 없다.
+// Controller로 주소를 작성하고 주소 내부에 작성한 확장자 .jsp나 .html 파일 이외는
+// 모두 접근해도 된다는 권한 허용 거쳐야 한다.
 
-    // static 에서 만든 스타일 기능을 소비자들이 사용하하고 있고,
-    // static_version_2 를 만들어서 스타일 기능 개발을 하고 있는데,
-    // 소비자들에게 개발중인 스타일 기능 사용되거나 보여지면 사고!
+// static 에서 만든 스타일 기능을 소비자들이 사용하하고 있고,
+// static_version_2 를 만들어서 스타일 기능 개발을 하고 있는데,
+// 소비자들에게 개발중인 스타일 기능 사용되거나 보여지면 사고!
+@Configuration
+@RequiredArgsConstructor
+public class WebConfig implements WebMvcConfigurer {
+    //만약 @RequiredArgsConstructor 를 사용하지 않는다면
+    //1. @Autowired 사용해서 loginInterceptor 호출 -> 생성자를 따로 만들어야한다.
+    // LoginInterceptor loginInterceptor 를 작성할 때 final을 넣을 수 없다.
+    //this.loginInterceptor와 같은 생성자 생성을 해야하기 때문에 @RequiredArgsConstructor 사용한다.
+
+    //2. @RequiredArgsConstructor @Autowired 둘 다 사용하지 않는다면
+    // LoginInterceptor loginInterceptor = new LoginInterceptor();
+    //를 만들어서 사용하나 레거시한 방법으로 스프링부트에서는  @RequiredArgsConstructor 사용하여
+    // 코드 작성을 단축한다.
+    private final LoginInterceptor loginInterceptor;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(loginInterceptor)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/static/**", "/api/**");
+    }
+
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**")
