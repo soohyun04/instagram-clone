@@ -117,12 +117,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 })
-
-
-
-
-
-
-
-
-
