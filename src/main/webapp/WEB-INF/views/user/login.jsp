@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="layout">
     <div class="auth-wrap">
 
         <%-- 폰 목업 --%>

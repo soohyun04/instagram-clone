@@ -33,7 +33,7 @@ public class ViewController {
         return "index";
     }
 
-    @GetMapping("/user/login")
+    @GetMapping("/login")
     public String loginView() {
         return "user/login";
     }

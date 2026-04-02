@@ -98,7 +98,7 @@
             </div>
 
             <div class="auth-link-box">
-                계정이 있으신가요? <a href="/user/login">로그인</a>
+                계정이 있으신가요? <a href="/login">로그인</a>
             </div>
         </div>
 
