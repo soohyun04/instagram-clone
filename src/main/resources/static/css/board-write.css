@@ -1,0 +1,210 @@
+.write-wrap {
+    max-width: 640px;
+    margin: 80px auto 40px;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.write-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-bottom: 1px solid #dbdbdb;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.write-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0095f6;
+    font-weight: 600;
+}
+
+.write-header .cancel-btn {
+    color: #262626;
+}
+
+.image-upload-area {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #dbdbdb;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-upload-area img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.image-upload-area .upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #8e8e8e;
+}
+
+.image-upload-area .upload-placeholder span {
+    font-size: 40px;
+}
+
+.image-upload-area .upload-placeholder p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.image-upload-area input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.write-body {
+    padding: 14px 16px;
+}
+
+.content-editor {
+    width: 100%;
+    min-height: 120px;
+    max-height: 240px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+    border: none;
+    resize: none;
+    color: #262626;
+    word-break: break-all;
+}
+
+.content-editor:empty::before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    pointer-events: none;
+}
+
+.content-editor .mention {
+    color: #0095f6;
+    font-weight: 500;
+}
+
+.content-editor .hashtag {
+    color: #0095f6;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    z-index: 100;
+    min-width: 220px;
+    max-width: 320px;
+    display: none;
+    overflow: hidden;
+}
+
+.autocomplete-dropdown.show {
+    display: block;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+    background: #f5f5f5;
+}
+
+.dropdown-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #efefef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.dropdown-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropdown-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #262626;
+}
+
+.dropdown-sub {
+    font-size: 12px;
+    color: #8e8e8e;
+}
+
+.dropdown-item .tag-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #efefef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #262626;
+    flex-shrink: 0;
+}
+
+.write-footer {
+    padding: 10px 16px;
+    border-top: 1px solid #dbdbdb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: #8e8e8e;
+}
+
+.char-count {
+    font-size: 12px;
+    color: #c7c7c7;
+}
+
+.editor-wrapper {
+    position: relative;
+}
+
+#멘션드롭다운,
+#해시태그드롭다운 {
+    bottom: calc(100% + 4px);
+    left: 0;
+}

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link rel="stylesheet" href="/static/css/board-write.css">
 <nav class="nav">
     <div class="nav-inner">
         <a href="/" class="nav-logo">instagram</a>
@@ -26,7 +27,7 @@
         <div class="nav-icons">
             <a class="nav-icon" href="/">홈</a>
             <a class="nav-icon" href="/map">지도</a>
-            <a class="nav-icon">글쓰기</a>
+            <a class="nav-icon" href="/board/write">글쓰기</a>
 
             <c:choose>
                 <c:when test="${not empty loginUser}">
