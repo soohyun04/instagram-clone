@@ -19,12 +19,12 @@ public class UserService {
     /**
      * 특정기능을 만든다 싶을 때는 우선 코드내 직접적으로 작성을 하고,
      * 한 번에 작성한 기능을 세부적으로 기능분리를 할 수 있는가?
-     *
+     * <p>
      * 에러/ 예외 상황이 발생하지 않아도, 개발팀 내에서 리팩토링이 필요하다 하는 파트의 기능을
      * 원활하게 수정하기 위하여 나누는 작업
-     *
+     * <p>
      * 혼자서 기능 세분화 코딩 해보고 싶다.
-     *
+     * <p>
      * 1. 어떤 기능을 만들고 싶은지 결과물에 작성
      * 2. 아무런 생각없이 결과물 만들기
      * 3. 결과물을 만든 다음에 기능세분화가 가능한 기능이 무엇이 있는지 찾아보기
@@ -60,7 +60,7 @@ public class UserService {
      * - 카카오 유저는 비밀번호 불필요 -> password -> nul
      * - 이미 있는 이메일이면 회원가입 무시
      */
-    public void 카카오회원가입(User user){
+    public void 카카오회원가입(User user) {
         //비밀번호가 필요 없기 때문에 비밀번호 암호화 작업 필요 없다.
         // 웹 브라우저 -> jsp -> javascript -> Controller에서 service로 유저가 작성한
         // 유저 정보를 User user 라는 문서에 임시 보관이 되어 있는 상태
@@ -68,13 +68,13 @@ public class UserService {
         // 백엔드로 저장이 되었는지를 가져오는 것
         //user.getEmail() = 프론트엔드에서 유저가 작성한 이메일을 자바에서 user 라는 공간에서 임시 보관
         //                  임시보관된 이메일을 가져와서 이메일중복체크기능() 으로db에 이메일이 내장되어 있는가 확인
-        if(이메일중복체크기능(user.getEmail()))return;
+        if (이메일중복체크기능(user.getEmail())) return;
         userMapper.회원가입(user);
 
     }
 
-    public void 네이버회원가입(User user){
-        if(이메일중복체크기능(user.getEmail()))return;
+    public void 네이버회원가입(User user) {
+        if (이메일중복체크기능(user.getEmail())) return;
         userMapper.회원가입(user);
     }
 
@@ -96,7 +96,19 @@ public class UserService {
 
     이정도는 팀장님이 이렇게 했으면 좋겠다 가이드라인 제공
      */
-    public List<User> 모든회원조회(){
+    public List<User> 모든회원조회() {
         return userMapper.모든회원조회();
+    }
+
+    public User 로그인(String email, String password) {
+        User user = userMapper.이메일로회원찾기(email);
+        if (user == null) return null;
+        if (!passwordEncoder.matches(password, user.getPassword())) return null;
+        return user;
+    }
+
+    public List<User> 유저명검색(String keyword) {
+        String at지운키워드 = keyword.replace("@", "");
+        return userMapper.유저명검색(at지운키워드);
     }
 }

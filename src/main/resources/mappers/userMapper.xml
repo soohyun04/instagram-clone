@@ -24,4 +24,17 @@
         SELECT *
         FROM users;
     </select>
+
+    <!--
+     name LIKE CONCAT('%', #{keyword}) 앞에 뭐가오든 상관없이 맨 위에 keyword가 있어야 한다.
+      name LIKE CONCAT(#{keyword}, '%') 무조건 keyword로 시작하고 뒤에 오는 건 상관 없다.
+       name LIKE CONCAT('%', #{keyword}, '%')
+    -->
+    <select id="유저명검색" resultType="com.project.instagramclone.model.mapper.UserMapper">
+        SELECT id, name, email, profile_img
+        FROM users
+        where name LIKE CONCAT('%', #{keyword}, '%')
+        ORDER BY name
+        LIMIT 5
+    </select>
 </mapper>
