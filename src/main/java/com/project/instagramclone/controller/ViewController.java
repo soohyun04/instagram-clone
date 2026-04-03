@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -27,6 +29,25 @@ public class ViewController {
     //민수가 회원가입 맡아서 매번 회원가입사이트 들어가서 개발 너무 귀찮다...
     //본인이 하는 회원가입 페이지를 /임시로 변경하고 해야지~
     private final LocationService locationService;
+
+    /******** 수정되었다 ***********/
+    @GetMapping("/user/kakao-register")
+    public String kakaoRegisterView(@RequestParam String email,
+                                    @RequestParam(defaultValue = "") String name,
+                                    Model model){
+        model.addAttribute("kakaoEmail", email);
+        model.addAttribute("kakaoName", name);
+        return "user/kakao-register";
+    }
+    /******** 수정끝났다. ***********/
+    @GetMapping("/user/naver-register")
+    public String naverRegisterView(@RequestParam String email,
+                                    @RequestParam(defaultValue = "") String name,
+                                    Model model){
+        model.addAttribute("naverEmail", email);
+        model.addAttribute("naverName", name);
+        return "user/naver-register";
+    }
 
     @GetMapping("/")
     public String indexView() {

@@ -73,6 +73,11 @@ public class UserService {
 
     }
 
+    public void 네이버회원가입(User user){
+        if(이메일중복체크기능(user.getEmail()))return;
+        userMapper.회원가입(user);
+    }
+
     public void 인증번호발송(String email) {
         emailCodeService.인증번호발송(email);    // emailCodeService 의 기능 호출
     }
