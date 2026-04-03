@@ -88,6 +88,21 @@
                         font-size: 14px;
                         margin-bottom: 8px;
                     }
+                    .btn-naver {
+                        background-color: #03CF5D;
+                        color: #191919;
+                        font-weight: 600;
+                        border: none;
+                        border-radius: 6px;
+                        padding: 10px;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        font-size: 14px;
+                        margin-bottom: 8px;
+                    }
                     .btn-kakao:hover {
                         background-color: #F0D800;
                         color: #191919;
@@ -95,6 +110,9 @@
                 </style>
                 <a href="/api/kakao/login" class="btn btn-kakao">
                     카카오 로그인
+                </a>
+                <a href="/api/naver/login" class="btn btn-naver">
+                    네이버 로그인
                 </a>
                 <a href="/user/find-email" style="font-size:12px; color:#00376b; margin-top:8px;">
                     비밀번호를 잊으셨나요?

@@ -51,6 +51,11 @@ kakao:
   redirect-uri: http://localhost:8080/api/kakao/callback
   client-secret: w63pTtM6n4p1Poj2UqQe4QNkiVlpd2T0
 
+naver:
+  client-id: 6A6FZWUukEMqwUA4o9sS
+  redirect-uri: http://localhost:8080/api/naver/callback
+  client-secret: h9K_E73ySY
+
 logging:
   level:
     com.project.instagramclone: DEBUG # 내 프로젝트
