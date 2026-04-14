@@ -49,3 +49,10 @@
         </div>
     </div>
 </nav>
+
+<script src="static/js/nav.js"></script>
+<script src="static/js/index.js"></script>
+<%--
+이렇게 두면 nav.jsp 를 include 하는 모든 jsp 에서는
+nav.js와 index.js을 사용할 수 있다.
+--%>
