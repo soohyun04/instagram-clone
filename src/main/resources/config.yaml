@@ -14,3 +14,16 @@ mail:
 jwt:
   config:
     secret: springboard-jwt-secret-kry-2026-change-this-please!!
+
+
+kakao:
+  config:
+    client-id: 9311861216c67fe70b0913f2f1987abe
+    redirect-uri: http://localhost:8080/api/kakao/callback
+    client-secret: w63pTtM6n4p1Poj2UqQe4QNkiVlpd2T0
+
+naver:
+  config:
+    client-id: 6A6FZWUukEMqwUA4o9sS
+    redirect-uri: http://localhost:8080/api/naver/callback
+    client-secret: h9K_E73ySY
